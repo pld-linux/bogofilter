@@ -4,9 +4,9 @@ Name:		bogofilter
 Version:	0.92.8
 Release:	1
 License:	GPL
-Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Group:		Applications/Mail
+Source0:	http://osdn.dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 # Source0-md5:	f8732688a3fe887a67da0ec39dbb06a1
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-dummy.patch
@@ -47,7 +47,6 @@ które przetwarzaj± du¿e ilo¶ci poczty.
 %patch1 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -58,7 +57,8 @@ rm -f missing
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf.example $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf
 
