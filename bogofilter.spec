@@ -1,7 +1,7 @@
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
 Name:		bogofilter
-Version:	0.9.1.2
+Version:	0.10.2
 Release:	1
 License:	GPL
 Group:		Applications/Mail
