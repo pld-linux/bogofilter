@@ -28,8 +28,8 @@ trybie dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu
 wykonuje statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i
 zwraca kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
 Bogofilter jest zaprojektowany z u¿yciem szybkich algorytmów
-(w³aczaj±c w to Berkeley DB), napisany w czystym C i "podkrêcony" pod
-k±tek szybko¶ci, a wiêc mo¿e byæ u¿ywany na systemach "produkcyjnych",
+(w³±czaj±c w to Berkeley DB), napisany w czystym C i "podkrêcony" pod
+k±tem szybko¶ci, a wiêc mo¿e byæ u¿ywany na systemach "produkcyjnych",
 które przetwarzaj± du¿e ilo¶ci poczty.
 
 %prep
