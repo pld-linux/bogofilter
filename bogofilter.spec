@@ -11,6 +11,7 @@ License:	GPL
 Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	775fd5a34d3f3629d4bb95105422ee67
 URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
