@@ -9,6 +9,7 @@ Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	http://www.tuxedo.org/~esr/bogofilter/%{name}-%{version}.tar.gz
 URL:		http://www.tuxedo.org/~esr/bogofilter/
 BuildRequires:	judy-devel
+BuildRequires:	db3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
