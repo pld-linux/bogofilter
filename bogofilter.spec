@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
-Source0:	http://osdn.dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 # Source0-md5:	0d2311a429893e0ce25ba1fd47e77d23
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-dummy.patch
