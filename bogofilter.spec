@@ -8,9 +8,11 @@ Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	http://prdownloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 URL:		http://bogofilter.sourceforge.net/
-BuildRequires:	judy-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	db3-devel
 BuildRequires:	flex
+BuildRequires:	judy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,7 +25,7 @@ system), coded directly in C, and tuned for speed, so it can be used
 for production by sites that process a lot of mail.
 
 %description -l pl
-Bogofilter jest bajesjañskim filtrem antyspamowym. W podstawowym
+Bogofilter jest bayesjañskim filtrem antyspamowym. W podstawowym
 trybie dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu
 wykonuje statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i
 zwraca kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
@@ -36,7 +38,7 @@ które przetwarzaj± du¿e ilo¶ci poczty.
 %setup -q
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 autoheader
 %{__automake}
