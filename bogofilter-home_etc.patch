@@ -1,21 +1,24 @@
---- bogofilter-0.92.2/src/configfile.c	2004-03-20 15:54:39.000000000 +0000
-+++ bogofilter-0.92.2.new/src/configfile.c	2004-07-27 08:10:56.495995144 +0000
-@@ -123,7 +123,13 @@
+diff -urN bogofilter-0.92.8.oryg/src/configfile.c bogofilter-0.92.8/src/configfile.c
+--- bogofilter-0.92.8.oryg/src/configfile.c	2004-08-22 17:52:28.000000000 +0200
++++ bogofilter-0.92.8/src/configfile.c	2004-10-24 18:20:00.925433952 +0200
+@@ -125,7 +125,14 @@
+     bool ok = true;
      int lineno = 0;
      FILE *fp;
-     char *filename;
 +    char *home_etc = getenv("HOME_ETC");
  
 +    if (home_etc && fname[0] == '~') {
-+        char buffer[1024];
++	char buffer[1024];
 +	snprintf(buffer, 1024, "%s%s", home_etc, fname+1);
-+	filename=xstrdup(buffer);
++	config_file_name=xstrdup(buffer);
 +    } else
-     filename = tildeexpand(fname, tilde_expand);
- 
-     fp = fopen(filename, "r");
---- bogofilter-0.92.2/src/paths.c	2004-05-25 03:53:36.000000000 +0000
-+++ bogofilter-0.92.2.new/src/paths.c	2004-07-27 08:11:52.978408512 +0000
++    
+     if (config_file_name != NULL)
+ 	xfree(config_file_name);
+     config_file_name = tildeexpand(fname, tilde_expand);
+diff -urN bogofilter-0.92.8.oryg/src/paths.c bogofilter-0.92.8/src/paths.c
+--- bogofilter-0.92.8.oryg/src/paths.c	2004-05-18 02:22:52.000000000 +0200
++++ bogofilter-0.92.8/src/paths.c	2004-10-24 18:22:51.345526160 +0200
 @@ -29,7 +29,7 @@
  #ifndef __riscos__
      { PR_ENV_BOGO, "BOGOFILTER_DIR", NULL },
