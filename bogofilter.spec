@@ -1,5 +1,5 @@
 Summary:	Bayesian Spam Filter
-Summary(pl):	Bayesiañski Filtr Antyspamowy
+Summary(pl):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
 Version:	0.7
 Release:	0.1
@@ -12,10 +12,10 @@ BuildRequires:	judy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Bayesian Spam Filter.
 
 %description -l pl
-
-
+Bayesowski Filtr Antyspamowy.
 
 %prep
 %setup -q
