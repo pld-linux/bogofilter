@@ -22,6 +22,8 @@ BuildRequires:	gsl-devel
 BuildRequires:	judy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		specflags_ia32	-fomit-frame-pointer
+
 %description
 Bogofilter is a Bayesian spam filter. In its normal mode of operation,
 it takes an email message or other text on standard input, does a
