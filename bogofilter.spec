@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
-Source0:	http://prdownloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	autoconf >= 2.55
 BuildRequires:	automake
