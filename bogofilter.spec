@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_db3	- build with db3 instead of db 4.x
+%bcond_with	db3 # with db3 instead of db4
 #
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
@@ -17,7 +17,7 @@ URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 %{!?_with_db3:BuildRequires:	db-devel}
-%{?_with_db3:BuildRequires:	db3-devel}
+%{?with_db3:BuildRequires:	db3-devel}
 BuildRequires:	flex
 BuildRequires:	gsl-devel
 BuildRequires:	judy-devel
