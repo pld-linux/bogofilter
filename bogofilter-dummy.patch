@@ -1,0 +1,11 @@
+--- configure.ac.old	2004-01-04 00:49:48.000000000 +0100
++++ configure.ac	2004-01-04 00:49:42.000000000 +0100
+@@ -501,7 +501,7 @@
+ export PATH
+ 
+ need_my_gsl=1
+-AC_ARG_WITH(included-gsl, AS_HELP_STRING([--with-included-gsl],[force use of shipped GSL rather than system GSL]),
++AC_ARG_WITH(included-gsl, ([--with-included-gsl],[force use of shipped GSL rather than system GSL]),
+ if test "x$WITHVAL" != "xyes" ; then need_my_gsl=2 ; fi)
+ 
+ if test "$need_my_gsl" = 1 ; then
