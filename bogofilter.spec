@@ -70,6 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS GETTING.STARTED RELEASE* NEWS README TODO
-%config(noreplace,missingok) %{_sysconfdir}/bogofilter.cf
+%config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/bogofilter.cf
 %attr(755,root,root) %{_bindir}/*
 %attr(644,root,root) %{_mandir}/man1/*
