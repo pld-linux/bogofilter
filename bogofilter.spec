@@ -1,14 +1,14 @@
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
 Name:		bogofilter
-Version:	0.8.0
+Version:	0.9.1.2
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	http://prdownloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 URL:		http://bogofilter.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.55
 BuildRequires:	automake
 BuildRequires:	db-devel
 BuildRequires:	flex
@@ -51,6 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+cp $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf.example $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf
+
 rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
@@ -58,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS TODO
+%doc README NEWS TODO 
+%config(noreplace,missingok) %{_sysconfdir}/bogofilter.cf
 %attr(755,root,root) %{_bindir}/*
 %attr(644,root,root) %{_mandir}/man1/*
