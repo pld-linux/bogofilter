@@ -38,18 +38,19 @@ które przetwarzaj± du¿e ilo¶ci poczty.
 %setup -q
 
 %build
+rm -f missing
 %{__aclocal}
 %{__autoconf}
-autoheader
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
 rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
