@@ -1,7 +1,6 @@
-diff -burN bogofilter-0.16.4.orig/src/configfile.c bogofilter-0.16.4/src/configfile.c
---- bogofilter-0.16.4.orig/src/configfile.c	2004-02-05 18:40:11.899160504 +0100
-+++ bogofilter-0.16.4/src/configfile.c	2004-02-05 18:50:35.250396712 +0100
-@@ -213,7 +213,13 @@
+--- bogofilter-0.92.2/src/configfile.c	2004-03-20 15:54:39.000000000 +0000
++++ bogofilter-0.92.2.new/src/configfile.c	2004-07-27 08:10:56.495995144 +0000
+@@ -123,7 +123,13 @@
      int lineno = 0;
      FILE *fp;
      char *filename;
@@ -15,9 +14,8 @@ diff -burN bogofilter-0.16.4.orig/src/configfile.c bogofilter-0.16.4/src/configf
      filename = tildeexpand(fname, tilde_expand);
  
      fp = fopen(filename, "r");
-diff -burN bogofilter-0.16.4.orig/src/paths.c bogofilter-0.16.4/src/paths.c
---- bogofilter-0.16.4.orig/src/paths.c	2004-02-05 18:40:11.966150320 +0100
-+++ bogofilter-0.16.4/src/paths.c	2004-02-05 18:58:56.031266448 +0100
+--- bogofilter-0.92.2/src/paths.c	2004-05-25 03:53:36.000000000 +0000
++++ bogofilter-0.92.2.new/src/paths.c	2004-07-27 08:11:52.978408512 +0000
 @@ -29,7 +29,7 @@
  #ifndef __riscos__
      { PR_ENV_BOGO, "BOGOFILTER_DIR", NULL },
@@ -27,11 +25,11 @@ diff -burN bogofilter-0.16.4.orig/src/paths.c bogofilter-0.16.4/src/paths.c
  #else
      { PR_ENV_HOME, "Choices$Write",  BOGODIR },
      { PR_ENV_HOME, "Bogofilter$Dir", NULL },
-@@ -94,6 +94,7 @@
+@@ -104,6 +104,7 @@
      size_t path_size, env_size;
  
      env = getenv(var);
 +    if (env == NULL && strcmp(var, "HOME_ETC") == 0) env = getenv("HOME");
-     if (env == NULL || strlen(env) == 0) return NULL;
+     if (env == NULL || *env == '\0') return NULL;
  
      env_size = strlen(env);
