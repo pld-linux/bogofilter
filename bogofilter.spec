@@ -1,13 +1,13 @@
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
 Name:		bogofilter
-Version:	0.7
-Release:	2
+Version:	0.7.4
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
-Source0:	http://www.tuxedo.org/~esr/bogofilter/%{name}-%{version}.tar.gz
-URL:		http://www.tuxedo.org/~esr/bogofilter/
+Source0:	http://prdownloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
+URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	judy-devel
 BuildRequires:	db3-devel
 BuildRequires:	flex
@@ -36,6 +36,11 @@ które przetwarzaj± du¿e ilo¶ci poczty.
 %setup -q
 
 %build
+aclocal
+%{__autoconf}
+autoheader
+%{__automake}
+%configure
 %{__make}
 
 %install
@@ -43,6 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
 rm -rf $RPM_BUILD_ROOT
