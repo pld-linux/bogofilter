@@ -18,6 +18,7 @@ BuildRequires:	automake
 %{!?_with_db3:BuildRequires:	db-devel}
 %{?_with_db3:BuildRequires:	db3-devel}
 BuildRequires:	flex
+BuildRequires:	gsl-devel
 BuildRequires:	judy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
