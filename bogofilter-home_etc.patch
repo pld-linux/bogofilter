@@ -1,24 +1,23 @@
-diff -Nru bogofilter-0.15.8.orig/src/configfile.c bogofilter-0.15.8/src/configfile.c
---- bogofilter-0.15.8.orig/src/configfile.c	2003-10-06 00:01:40.000000000 +0200
-+++ bogofilter-0.15.8/src/configfile.c	2003-11-12 18:12:59.000000000 +0100
-@@ -195,8 +195,14 @@
+diff -burN bogofilter-0.16.4.orig/src/configfile.c bogofilter-0.16.4/src/configfile.c
+--- bogofilter-0.16.4.orig/src/configfile.c	2004-02-05 18:40:11.899160504 +0100
++++ bogofilter-0.16.4/src/configfile.c	2004-02-05 18:50:35.250396712 +0100
+@@ -213,7 +213,13 @@
+     int lineno = 0;
      FILE *fp;
      char *filename;
-     char *arg = NULL, *val = NULL;
-+    char *home_etc = getenv("HOME_ETC");		
++    char *home_etc = getenv("HOME_ETC");
  
--    filename = tildeexpand(fname, tilde_expand);
 +    if (home_etc && fname[0] == '~') {
-+      char buffer[1024];
-+      
-+      snprintf(buffer, 1024, "%s%s", home_etc, fname + 1);
-+      filename = xstrdup(buffer);
-+    } else filename = tildeexpand(fname, tilde_expand);
++        char buffer[1024];
++	snprintf(buffer, 1024, "%s%s", home_etc, fname+1);
++	filename=xstrdup(buffer);
++    } else
+     filename = tildeexpand(fname, tilde_expand);
  
      fp = fopen(filename, "r");
- 
---- bogofilter-0.15.8.orig/src/paths.c	2003-09-30 00:31:20.000000000 +0200
-+++ bogofilter-0.15.8/src/paths.c	2003-11-12 18:27:10.000000000 +0100
+diff -burN bogofilter-0.16.4.orig/src/paths.c bogofilter-0.16.4/src/paths.c
+--- bogofilter-0.16.4.orig/src/paths.c	2004-02-05 18:40:11.966150320 +0100
++++ bogofilter-0.16.4/src/paths.c	2004-02-05 18:58:56.031266448 +0100
 @@ -29,7 +29,7 @@
  #ifndef __riscos__
      { PR_ENV_BOGO, "BOGOFILTER_DIR", NULL },
@@ -28,11 +27,11 @@ diff -Nru bogofilter-0.15.8.orig/src/configfile.c bogofilter-0.15.8/src/configfi
  #else
      { PR_ENV_HOME, "Choices$Write",  BOGODIR },
      { PR_ENV_HOME, "Bogofilter$Dir", NULL },
-@@ -91,6 +91,7 @@
+@@ -94,6 +94,7 @@
      size_t path_size, env_size;
  
      env = getenv(var);
-+    if (env == NULL && strcmp(var, "HOME_ETC") == 0) env = getenv("HOME"); 
++    if (env == NULL && strcmp(var, "HOME_ETC") == 0) env = getenv("HOME");
      if (env == NULL || strlen(env) == 0) return NULL;
  
      env_size = strlen(env);

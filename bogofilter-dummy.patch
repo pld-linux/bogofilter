@@ -1,10 +1,11 @@
---- configure.ac.old	2004-01-04 00:49:48.000000000 +0100
-+++ configure.ac	2004-01-04 00:49:42.000000000 +0100
-@@ -501,7 +501,7 @@
+diff -burN bogofilter-0.16.4.orig/configure.ac bogofilter-0.16.4/configure.ac
+--- bogofilter-0.16.4.orig/configure.ac	2004-02-05 18:40:11.998145456 +0100
++++ bogofilter-0.16.4/configure.ac	2004-02-05 19:07:20.235615736 +0100
+@@ -514,7 +514,7 @@
  export PATH
  
  need_my_gsl=1
--AC_ARG_WITH(included-gsl, AS_HELP_STRING([--with-included-gsl],[force use of shipped GSL rather than system GSL]),
+-AC_ARG_WITH(included-gsl, AC_HELP_STRING([--with-included-gsl],[force use of shipped GSL rather than system GSL]),
 +AC_ARG_WITH(included-gsl, ([--with-included-gsl],[force use of shipped GSL rather than system GSL]),
  if test "x$WITHVAL" != "xyes" ; then need_my_gsl=2 ; fi)
  
