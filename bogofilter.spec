@@ -1,3 +1,6 @@
+# Conditional build:
+# _with_db3	- build with db3 instead of db4
+
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
 Name:		bogofilter
@@ -8,9 +11,10 @@ Group:		Applications/Mail
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://bogofilter.sourceforge.net/
-BuildRequires:	autoconf >= 2.55
+BuildRequires:	autoconf 
 BuildRequires:	automake
-BuildRequires:	db-devel
+%{!?_with_db3:BuildRequires:	db-devel}
+%{?_with_db3:BuildRequires:	db3-devel}
 BuildRequires:	flex
 BuildRequires:	judy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
