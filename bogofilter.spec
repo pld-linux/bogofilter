@@ -1,13 +1,13 @@
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesjañski Filtr Antyspamowy
 Name:		bogofilter
-Version:	0.96.0
+Version:	0.96.4
 Release:	1
 License:	GPL v2
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
-Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
-# Source0-md5:	b07c9dbf7a102b27caff6a047fbbd15a
+Source0:	http://mesh.dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
+# Source0-md5:	df4259e3c3644b4895e676212d901ef2
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-dummy.patch
 URL:		http://bogofilter.sourceforge.net/
