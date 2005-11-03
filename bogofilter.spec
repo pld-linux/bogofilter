@@ -6,7 +6,7 @@ Release:	1
 License:	GPL v2
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
-Source0:	http://mesh.dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
 # Source0-md5:	df4259e3c3644b4895e676212d901ef2
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-dummy.patch
