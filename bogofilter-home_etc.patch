@@ -1,24 +1,24 @@
-diff -urN bogofilter-0.92.8.oryg/src/configfile.c bogofilter-0.92.8/src/configfile.c
---- bogofilter-0.92.8.oryg/src/configfile.c	2004-08-22 17:52:28.000000000 +0200
-+++ bogofilter-0.92.8/src/configfile.c	2004-10-24 18:20:00.925433952 +0200
-@@ -125,7 +125,14 @@
+diff -urN bogofilter-0.96.4.orig/src/configfile.c bogofilter-0.96.4/src/configfile.c
+--- bogofilter-0.96.4.orig/src/configfile.c	2005-10-15 23:03:11.000000000 +0200
++++ bogofilter-0.96.4/src/configfile.c	2005-11-03 16:26:38.844514992 +0100
+@@ -148,7 +148,13 @@
      bool ok = true;
      int lineno = 0;
      FILE *fp;
+-
 +    char *home_etc = getenv("HOME_ETC");
- 
 +    if (home_etc && fname[0] == '~') {
-+	char buffer[1024];
-+	snprintf(buffer, 1024, "%s%s", home_etc, fname+1);
-+	config_file_name=xstrdup(buffer);
++       char buffer[1024];
++       snprintf(buffer, 1024, "%s%s", home_etc, fname+1);
++       config_file_name=xstrdup(buffer);
 +    } else
-+    
++   
      if (config_file_name != NULL)
  	xfree(config_file_name);
-     config_file_name = tildeexpand(fname, tilde_expand);
-diff -urN bogofilter-0.92.8.oryg/src/paths.c bogofilter-0.92.8/src/paths.c
---- bogofilter-0.92.8.oryg/src/paths.c	2004-05-18 02:22:52.000000000 +0200
-+++ bogofilter-0.92.8/src/paths.c	2004-10-24 18:22:51.345526160 +0200
+ 
+diff -urN bogofilter-0.96.4.orig/src/paths.c bogofilter-0.96.4/src/paths.c
+--- bogofilter-0.96.4.orig/src/paths.c	2005-08-15 01:03:42.000000000 +0200
++++ bogofilter-0.96.4/src/paths.c	2005-11-03 16:28:51.672322096 +0100
 @@ -29,7 +29,7 @@
  #ifndef __riscos__
      { PR_ENV_BOGO, "BOGOFILTER_DIR", NULL },
@@ -28,7 +28,7 @@ diff -urN bogofilter-0.92.8.oryg/src/paths.c bogofilter-0.92.8/src/paths.c
  #else
      { PR_ENV_HOME, "Choices$Write",  BOGODIR },
      { PR_ENV_HOME, "Bogofilter$Dir", NULL },
-@@ -104,6 +104,7 @@
+@@ -274,6 +274,7 @@
      size_t path_size, env_size;
  
      env = getenv(var);
