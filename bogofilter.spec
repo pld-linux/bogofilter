@@ -2,7 +2,7 @@ Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
 Version:	1.0.0
-Release:	1.1
+Release:	2
 License:	GPL v2
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -66,6 +66,29 @@ rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+
+%banner %{name} -e <<'EOF'
+
+WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+------------------------------------------------------------------------
+POTENTIAL FOR DATA CORRUPTION DURING UPDATES
+
+If you plan to upgrade your database library, if only as a side effect
+of an operating system upgrade, DO HEED the relevant documentation, for
+instance, the /usr/share/doc/%{name}-%{version}/README.db file.  
+You may need to prepare the upgrade with the old version of the software.
+
+Otherwise, you may cause irrecoverable damage to your databases.
+
+DO backup your databases before making the upgrade.
+------------------------------------------------------------------------
+WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+
+EOF
+
+#.
 
 %files
 %defattr(644,root,root,755)
