@@ -1,5 +1,5 @@
 Summary:	Bayesian Spam Filter
-Summary(pl):	Bayesjañski Filtr Antyspamowy
+Summary(pl):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
 Version:	1.0.0
 Release:	1
@@ -32,7 +32,7 @@ system), coded directly in C, and tuned for speed, so it can be used
 for production by sites that process a lot of mail.
 
 %description -l pl
-Bogofilter jest bayesjañskim filtrem antyspamowym. W podstawowym
+Bogofilter jest bayesowski filtrem antyspamowym. W podstawowym
 trybie dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu
 wykonuje statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i
 zwraca kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
