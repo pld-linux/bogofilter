@@ -32,10 +32,10 @@ system), coded directly in C, and tuned for speed, so it can be used
 for production by sites that process a lot of mail.
 
 %description -l pl
-Bogofilter jest bayesowski filtrem antyspamowym. W podstawowym
-trybie dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu
-wykonuje statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i
-zwraca kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
+Bogofilter jest bayesowski filtrem antyspamowym. W podstawowym trybie
+dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu wykonuje
+statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i zwraca
+kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
 Bogofilter jest zaprojektowany z u¿yciem szybkich algorytmów
 (w³±czaj±c w to Berkeley DB), napisany w czystym C i "podkrêcony" pod
 k±tem szybko¶ci, a wiêc mo¿e byæ u¿ywany na systemach "produkcyjnych",
