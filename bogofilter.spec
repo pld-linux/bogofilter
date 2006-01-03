@@ -1,15 +1,19 @@
+# TODO:
+# - make separate package linked with sqlite
+# - make milter subpackage
+# - maybe make some separate package with contrib perl scripts?
+# - remove bogus banner
+#
 Summary:	Bayesian Spam Filter
 Summary(pl):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
-Version:	1.0.0
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	GPL v2
-Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
 Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.gz
-# Source0-md5:	1f3bff28f7d9cb7b0c3a28184c101b53
+# Source0-md5:	72b0bc4cd790cd0dedec77b77c4f76ae
 Patch0:		%{name}-home_etc.patch
-Patch1:		%{name}-dummy.patch
 URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -44,7 +48,6 @@ które przetwarzaj± du¿e ilo¶ci poczty.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
@@ -62,12 +65,25 @@ rm -rf $RPM_BUILD_ROOT
 
 cp $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf.example $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf
 
+install bogogrep $RPM_BUILD_ROOT%{_bindir}
+# Some apps from contrib:
+install contrib/bfproxy.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/bogominitrain.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/mime.get.rfc822.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/printmaildir.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/spamitarium.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/stripsearch.pl $RPM_BUILD_ROOT%{_bindir}
+install contrib/trainbogo.sh $RPM_BUILD_ROOT%{_bindir}
+
+# Some final cleanups:
 rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
+# That banner is bogus - no sense to have it _while_ upgrading...
+# It should be some trigger...
+%pre
 %banner %{name} -e <<'EOF'
 
 WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
@@ -89,7 +105,9 @@ EOF
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS GETTING.STARTED RELEASE* NEWS README doc/README.db TODO
+%doc AUTHORS GETTING.STARTED RELEASE* NEWS* README doc/{README.*,bogofilter-SA*,integrating*} TODO
+%doc contrib/{bogofilter-qfe.sh,bogofilter-milter.pl,dot-qmail-bogofilter-default,*.example,parmtest.sh}
+%doc contrib/{README.*,randomtrain.sh,scramble.sh}
 %config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/bogofilter.cf
 %attr(755,root,root) %{_bindir}/*
 %attr(644,root,root) %{_mandir}/man1/*
