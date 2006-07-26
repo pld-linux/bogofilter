@@ -110,4 +110,4 @@ EOF
 %doc contrib/{README.*,randomtrain.sh,scramble.sh}
 %config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/bogofilter.cf
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %{_mandir}/man1/*
+%{_mandir}/man1/*
