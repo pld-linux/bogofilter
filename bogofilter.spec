@@ -83,6 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # That banner is bogus - no sense to have it _while_ upgrading...
 # It should be some trigger...
+# It makes at least sense that someone will read this file
+# before running bogofilter after upgrade and corrupt his db as
+# it happened before. Bogofilter is not service/daemon by default
+# so its not run automaticaly after upgrade. One can still backup
+# his db.
 %pre
 %banner %{name} -e <<'EOF'
 
