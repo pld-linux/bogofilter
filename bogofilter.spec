@@ -20,7 +20,6 @@ BuildRequires:	automake
 BuildRequires:	db-devel
 BuildRequires:	flex
 BuildRequires:	gsl-devel
-BuildRequires:	judy-devel
 Requires:	gsl >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
