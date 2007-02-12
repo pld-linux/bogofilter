@@ -5,7 +5,7 @@
 # - remove bogus banner
 #
 Summary:	Bayesian Spam Filter
-Summary(pl.UTF-8):   Bayesowski Filtr Antyspamowy
+Summary(pl.UTF-8):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
 Version:	1.1.3
 Release:	1
