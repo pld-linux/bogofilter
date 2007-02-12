@@ -5,7 +5,7 @@
 # - remove bogus banner
 #
 Summary:	Bayesian Spam Filter
-Summary(pl):	Bayesowski Filtr Antyspamowy
+Summary(pl.UTF-8):   Bayesowski Filtr Antyspamowy
 Name:		bogofilter
 Version:	1.1.3
 Release:	1
@@ -34,15 +34,15 @@ Bogofilter is designed with fast algorithms (including Berkeley DB
 system), coded directly in C, and tuned for speed, so it can be used
 for production by sites that process a lot of mail.
 
-%description -l pl
+%description -l pl.UTF-8
 Bogofilter jest bayesowski filtrem antyspamowym. W podstawowym trybie
-dzia³ania na emailu lub innym tek¶cie odczytanym na wej¶ciu wykonuje
-statystyczne testy na wystêpowanie "dobrych" i "z³ych" s³ów i zwraca
-kod powrotu wskazuj±cy czy wiadomo¶æ jest spamem, czy te¿ nie.
-Bogofilter jest zaprojektowany z u¿yciem szybkich algorytmów
-(w³±czaj±c w to Berkeley DB), napisany w czystym C i "podkrêcony" pod
-k±tem szybko¶ci, a wiêc mo¿e byæ u¿ywany na systemach "produkcyjnych",
-które przetwarzaj± du¿e ilo¶ci poczty.
+dziaÅ‚ania na emailu lub innym tekÅ›cie odczytanym na wejÅ›ciu wykonuje
+statystyczne testy na wystÄ™powanie "dobrych" i "zÅ‚ych" sÅ‚Ã³w i zwraca
+kod powrotu wskazujÄ…cy czy wiadomoÅ›Ä‡ jest spamem, czy teÅ¼ nie.
+Bogofilter jest zaprojektowany z uÅ¼yciem szybkich algorytmÃ³w
+(wÅ‚Ä…czajÄ…c w to Berkeley DB), napisany w czystym C i "podkrÄ™cony" pod
+kÄ…tem szybkoÅ›ci, a wiÄ™c moÅ¼e byÄ‡ uÅ¼ywany na systemach "produkcyjnych",
+ktÃ³re przetwarzajÄ… duÅ¼e iloÅ›ci poczty.
 
 %prep
 %setup -q
