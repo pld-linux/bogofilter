@@ -19,6 +19,7 @@ BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	db-devel
 BuildRequires:	flex
+BuildRequires:	gettext-devel
 BuildRequires:	gsl-devel
 Requires:	gsl >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
