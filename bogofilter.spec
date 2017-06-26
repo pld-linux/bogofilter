@@ -7,21 +7,20 @@
 Summary:	Bayesian Spam Filter
 Summary(pl.UTF-8):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
-Version:	1.2.2
-Release:	6
+Version:	1.2.4
+Release:	1
 License:	GPL v2
 Group:		Applications/Mail
-Source0:	http://dl.sourceforge.net/bogofilter/%{name}-%{version}.tar.bz2
-# Source0-md5:	4bcabdf8c5e7efefcb508eda7e80eebc
+Source0:	http://downloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.bz2
+# Source0-md5:	d0a5eebb3274b23ceabe766a6443a1c5
 Patch0:		%{name}-home_etc.patch
-Patch1:		lexer.patch
 URL:		http://bogofilter.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	db-devel
 BuildRequires:	flex
 BuildRequires:	gettext-tools
-BuildRequires:	gsl-devel
+BuildRequires:	gsl-devel >= 1.4
 Requires:	gsl >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,7 +48,6 @@ które przetwarzają duże ilości poczty.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
@@ -112,9 +110,33 @@ EOF
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS GETTING.STARTED RELEASE* NEWS* README doc/{README.*,bogofilter-SA*,integrating*} TODO
-%doc contrib/{bogofilter-qfe.sh,bogofilter-milter.pl,dot-qmail-bogofilter-default,*.example,parmtest.sh}
-%doc contrib/{README.*,randomtrain.sh,scramble.sh}
+%doc AUTHORS GETTING.STARTED NEWS* README RELEASE.NOTES TODO doc/{README.*,bogofilter-SA*,bogofilter-faq.html,bogofilter-tuning.HOWTO.html,bogotune-faq.html,integrating*}
+%lang(bg) %doc doc/bogofilter-faq-bg.xhtml
+%lang(fr) %doc doc/bogofilter-faq-fr.html
+%lang(it) %doc doc/bogofilter-faq-it.html
+%doc contrib/{README.*,bogo.R,bogofilter-qfe.sh,bogofilter-milter.pl,dot-qmail-bogofilter-default,*.example,parmtest.sh,procmailrc.example,randomtrain.sh,scramble.sh,vm-bogofilter.el}
 %config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/bogofilter.cf
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/bf_compact
+%attr(755,root,root) %{_bindir}/bf_copy
+%attr(755,root,root) %{_bindir}/bf_tar
+%attr(755,root,root) %{_bindir}/bfproxy.pl
+%attr(755,root,root) %{_bindir}/bogofilter
+%attr(755,root,root) %{_bindir}/bogogrep
+%attr(755,root,root) %{_bindir}/bogolexer
+%attr(755,root,root) %{_bindir}/bogominitrain.pl
+%attr(755,root,root) %{_bindir}/bogotune
+%attr(755,root,root) %{_bindir}/bogoupgrade
+%attr(755,root,root) %{_bindir}/bogoutil
+%attr(755,root,root) %{_bindir}/mime.get.rfc822.pl
+%attr(755,root,root) %{_bindir}/printmaildir.pl
+%attr(755,root,root) %{_bindir}/spamitarium.pl
+%attr(755,root,root) %{_bindir}/stripsearch.pl
+%attr(755,root,root) %{_bindir}/trainbogo.sh
+%{_mandir}/man1/bf_compact.1*
+%{_mandir}/man1/bf_copy.1*
+%{_mandir}/man1/bf_tar.1*
+%{_mandir}/man1/bogofilter.1*
+%{_mandir}/man1/bogolexer.1*
+%{_mandir}/man1/bogotune.1*
+%{_mandir}/man1/bogoupgrade.1*
+%{_mandir}/man1/bogoutil.1*
