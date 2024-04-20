@@ -7,20 +7,23 @@
 Summary:	Bayesian Spam Filter
 Summary(pl.UTF-8):	Bayesowski Filtr Antyspamowy
 Name:		bogofilter
-Version:	1.2.4
-Release:	3
+Version:	1.2.5
+Release:	1
 License:	GPL v2
 Group:		Applications/Mail
-Source0:	http://downloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0a5eebb3274b23ceabe766a6443a1c5
+Source0:	https://downloads.sourceforge.net/bogofilter/%{name}-%{version}.tar.xz
+# Source0-md5:	8763f87adfff7b802ced177d8c654539
 Patch0:		%{name}-home_etc.patch
-URL:		http://bogofilter.sourceforge.net/
-BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake
+URL:		https://bogofilter.sourceforge.net/
+BuildRequires:	autoconf >= 2.68
+BuildRequires:	automake >= 1:1.11
+# alternatives (--with-database=): qdbm,sqlite3,tokyocabinet,kyotocabinet,lmdb
 BuildRequires:	db-devel
 BuildRequires:	flex
 BuildRequires:	gettext-tools
 BuildRequires:	gsl-devel >= 1.4
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	gsl >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf.example $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf
+cp -p $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf.example $RPM_BUILD_ROOT%{_sysconfdir}/bogofilter.cf
 
 install bogogrep $RPM_BUILD_ROOT%{_bindir}
 # Some apps from contrib:
@@ -74,9 +77,6 @@ install contrib/printmaildir.pl $RPM_BUILD_ROOT%{_bindir}
 install contrib/spamitarium.pl $RPM_BUILD_ROOT%{_bindir}
 install contrib/stripsearch.pl $RPM_BUILD_ROOT%{_bindir}
 install contrib/trainbogo.sh $RPM_BUILD_ROOT%{_bindir}
-
-# Some final cleanups:
-rm -f $RPM_BUILD_ROOT%{_bindir}/lexertest
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -114,7 +114,7 @@ EOF
 %lang(bg) %doc doc/bogofilter-faq-bg.xhtml
 %lang(fr) %doc doc/bogofilter-faq-fr.html
 %lang(it) %doc doc/bogofilter-faq-it.html
-%doc contrib/{README.*,bogo.R,bogofilter-qfe.sh,bogofilter-milter.pl,dot-qmail-bogofilter-default,*.example,parmtest.sh,procmailrc.example,randomtrain.sh,scramble.sh,vm-bogofilter.el}
+%doc contrib/{README.*,bogo.R,bogofilter-qfe.sh,bogofilter-milter.pl,dot-qmail-bogofilter-default,*.example,parmtest.sh,randomtrain.sh,scramble.sh,vm-bogofilter.el}
 %config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/bogofilter.cf
 %attr(755,root,root) %{_bindir}/bf_compact
 %attr(755,root,root) %{_bindir}/bf_copy
